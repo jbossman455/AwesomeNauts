@@ -43,3 +43,17 @@ game.PlayerEntity= me.Entity.extend ({
         return true;
     }
 });
+
+game.PlayerBaseEntity = me.Entity.extend ({
+    init : function(x, y, settings) {
+        this._super()
+            
+        
+    }, 
+    
+    update:function () {
+        
+    }
+    
+    
+});
