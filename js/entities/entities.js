@@ -12,11 +12,15 @@ game.PlayerEntity= me.Entity.extend ({
         }]);
     
     this.body.setVelocity(5, 20);
+    me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     
     this.renderable.addAnimation ("idle",[78]);
     this.renderable.addAnimation("walk", [117,118,119,120,121,122,123,124,125], 80);
+    this.renderable.addAnimation("attack",[65,66,67,68,69,70,71,72], 80);
+    
     
     this.renderable.setCurrentAnimation ("idle");
+    this.renderable.addAnimation("walk");
     },
     
     update:function (delta){
@@ -28,6 +32,10 @@ game.PlayerEntity= me.Entity.extend ({
             this.flipX(true);
         }else{
             this.body.vel.x= 0;
+        }
+        
+        if(me.input.isKeyPressed("attack")){
+            
         }
         
         if(this.body.vel.x !==0){
@@ -44,16 +52,84 @@ game.PlayerEntity= me.Entity.extend ({
     }
 });
 
-game.PlayerBaseEntity = me.Entity.extend ({
-    init : function(x, y, settings) {
-        this._super()
-            
+game.PlayerBaseEntity = me.Entity.extend({
+    init: function(x, y, settings) {
+        this._super(me.Entity, 'init' [x, y, {
+            image: "to wer",
+            width: 100,
+            height: 100,
+            spritewidth: "100",
+            spriteheight: "100",
+            getShape: function() {
+                return (new me.Rect(0, 0, 100, 100)).toPolygon();
+            }
+        }]);
+        this.broken = false;
+        this.health= 10;
+        this.alwaysUpdate=true;
+        this.body.onCollision=this.onCollision.bind(this);
         
-    }, 
-    
-    update:function () {
+        this.type= "PlayerBaseEntity";
+
+           this.renderable.addAnimation("idle", [0]);
+           this.renderable.addAnimation("broken", [1]);
+           this.renderable.setCurrentAnimation("idle");
+
+      },
+    update: function() {
+          if(this.health<=0){
+              this.broken=true;
+              this.renderable.setCurrentAnimation("broken");
+          }
+          this.body.update(delta);
+          
+          this._super(me.Entity, "update", [delta]);
+          return true;
+    },
+    OnCollison: function () {
         
     }
     
     
 });
+game.EnemyBaseEntity = me.Entity.extend({
+    init: function(x, y, settings) {
+        this._super(me.Entity, 'init' [x, y, {
+            image: "to wer",
+            width: 100,
+            height: 100,
+            spritewidth: "100",
+            spriteheight: "100",
+            getShape: function() {
+                return (new me.Rect(0, 0, 100, 100)).toPolygon();
+            }
+        }]);
+        this.broken = false;
+        this.health= 10;
+        this.alwaysUpdate=true;
+        this.body.onCollision=this.onCollision.bind(this);
+        
+        this.type= "EnemyBaseEntity";
+
+           this.renderable.addAnimation("idle", [0]);
+           this.renderable.addAnimation("broken", [1]);
+           this.renderable.setCurrentAnimation("idle");
+
+    },
+        update: function() {
+          if(this.health<=0){
+              this.broken=true;
+              this.renderable.setCurrentAnimation("broken");
+          }
+          this.body.update(delta);
+          
+          this._super(me.Entity, "update", [delta]);
+          return true;
+    },
+    OnCollison: function () {
+        
+    }
+     
+});
+    
+    
