@@ -34,18 +34,45 @@ game.PlayerEntity= me.Entity.extend ({
             this.body.vel.x= 0;
         }
         
+       
+          
         if(me.input.isKeyPressed("attack")){
+            if(!this.renderable.isCurrentAnimation("attack")){
+                console.log(!this.renderable.isCurrentAnimation("attack"));
+                // Sets the currnet animation to attack and once that is over.
+                // setVelocity() and multiplying it by me.timer.tick
+                this.renderable.setCurrentAnimation("attack", "idle");
+                // Makes it so that next time we begin the sequence
+                //  We start from the first animation, not wherever we left off
+                // when we switched to another animation
+                this.renderable.setAnimationFrame ();
+            }
             
         }
         
-        if(this.body.vel.x !==0){
+       else if(this.body.vel.x !==0){
         if(!this.renderable.isCurrentAnimation("walk")) {
             this.renderable.setCurrentAnimation("walk");
         }
     }else{
         this.renderable.setCurrentAnimation("idle");
     }
-        
+    
+    
+          
+        if(me.input.isKeyPressed("attack")){
+            if(!this.renderable.isCurrentAnimation("attack")){
+                console.log(!this.renderable.isCurrentAnimation("attack"));
+                // Sets the currnet animation to attack and once that is over.
+                // setVelocity() and multiplying it by me.timer.tick
+                this.renderable.setCurrentAnimation("attack", "idle");
+                // Makes it so that next time we begin the sequence
+                //  We start from the first animation, not wherever we left off
+                // when we switched to another animation
+                this.renderable.setAnimationFrame ();
+            }
+            
+        }
         this.body.update(delta);
         this._super(me.Entity, "update" , [delta]);
         return true;
