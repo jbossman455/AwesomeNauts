@@ -18,7 +18,7 @@ game.PlayerEntity= me.Entity.extend ({
     me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
     
     this.renderable.addAnimation ("idle",[78]);
-    this.renderable.addAnimation("walk", [117,118,119,120,121,122,123,124,125], 80);
+    this.renderable.addAnimation("walk", [ 117, 118, 119, 120, 121, 122, 123, 124,125], 80);
     this.renderable.addAnimation("attack",[65,66,67,68,69,70,71,72], 80);
     
     
@@ -270,8 +270,9 @@ game.EnemyCreep = me.Entity.extend({
       },
       update:function () {
           this.now = new Date (). getTime ();
-          
+          console.log("update");
           if(Math.round(this.now/1000) %10===0 && (this.now - this.lastCreep >=1000)){
+              console.log("Cool");
               this.lastCreep = this.now;
                var creepe = me.pool.pull("EnemyCreep", 1000, 0 , {});
                me.game.world.addChdild (creepe, 5);

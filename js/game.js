@@ -21,11 +21,11 @@ var game = {
 	if (document.location.hash === "#debug") {
 		window.onReady(function () {
 			me.plugin.register.defer(this, debugPanel, "debug");
-		});
-	}
-
 	// Initialize the audio.
 	me.audio.init("mp3,ogg");
+
+		});
+	}
 
 	// Set a callback to run when loading is complete.
 	me.loader.onload = this.loaded.bind(this);
@@ -43,6 +43,7 @@ var game = {
             me.pool.register("PlayerBase", game.PlayerBaseEntity);
             me.pool.register("EnemyBase", game.EnemyBaseEntity);
             me.pool.register("EnemyCreep" ,game.EnemyCreep, true );
+            me.pool.register("GameManager", game.GameManager);
             
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
