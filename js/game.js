@@ -11,16 +11,17 @@ var game = {
                 enemyCreepHealth: 10,
                 playerHealth: 10,
                 enemyCreepAttack: 1,
-                playerAttack: 1,
+                playerAttack: 10,
 //                orcBaseDamage: 10,
 //                orcBaseHealth: 100,
 //                orcBaseSpeed: 3,
 //                orcBaseDefense: 0,
-                playerAttackTimer: 1000, 
+                playerAttackTimer: 5000, 
                 creepAttackTimer: 1000,
-                playerMoveSpeed: 40,
+                playerMoveSpeed: 5,
                 creepMoveSpeed: 5,
-                gameManager: "",
+                gameTimerManager: "",
+                heroDeathManager: "",
                 player: "",
                 exp: 0,
                 gold: 0,
@@ -35,7 +36,7 @@ var game = {
 	// Run on page load.
 	"onload" : function () {
 	// Initialize the video.
-	if (!me.video.init("screen",  me.video.CANVAS, 1067, 800, true, 'auto')) {
+	if (!me.video.init("screen",  me.video.CANVAS, 1067, 600, true, 'auto')) {
 		alert("Your browser does not support HTML5 canvas.");
 		return;
 	}
@@ -66,8 +67,8 @@ var game = {
             me.pool.register("PlayerBase", game.PlayerBaseEntity);
             me.pool.register("EnemyBase", game.EnemyBaseEntity);
             me.pool.register("EnemyCreep" ,game.EnemyCreep, true );
-            me.pool.register("GameManager", game.GameManager);
-            
+            me.pool.register("GameTimerManager", game.GameTimerManager);
+            me.pool.register("HeroDeathManager", game.HeroDeathManager);
 		me.state.set(me.state.MENU, new game.TitleScreen());
 		me.state.set(me.state.PLAY, new game.PlayScreen());
 

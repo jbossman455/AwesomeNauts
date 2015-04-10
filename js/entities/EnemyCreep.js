@@ -72,8 +72,8 @@ game.EnemyCreep = me.Entity.extend({
                 // passes damage of 1
                 response.b.loseHealth(game.data.enemyCreepAttack);
             }
-        }else if (response.b.type==='') {
-            var xdif = this.pos.x - response.b.x;
+        }else if (response.b.type==='PlayerEntity') {
+            var xdif = this.pos.x - response.b.pos.x;
             
                    this.attacking=true;
            // this.lastAttacking= this.now;
