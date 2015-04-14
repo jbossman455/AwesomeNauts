@@ -51,6 +51,9 @@ var game = {
 
 		});
 	}
+        
+        me.save.add({exp: 0, exp1:0, exp2:0, exp3:0, exp4:0});
+        
 
 	// Set a callback to run when loading is complete.
 	me.loader.onload = this.loaded.bind(this);
