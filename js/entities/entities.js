@@ -6,13 +6,9 @@ game.PlayerEntity = me.Entity.extend({
         this.type = 'PlayerEntity';
         this.setFlags();
 
-
-
-
         me.game.viewport.follow(this.pos, me.game.viewport.AXIS.BOTH);
 
         this.addAnimation();
-
 
         this.renderable.setCurrentAnimation("idle");
 
@@ -49,9 +45,6 @@ game.PlayerEntity = me.Entity.extend({
         this.renderable.addAnimation("idle", [78]);
         this.renderable.addAnimation("walk", [117, 118, 119, 120, 121, 122, 123, 124, 125], 80);
         this.renderable.addAnimation("attack", [65, 66, 67, 68, 69, 70, 71, 72], 80);
-
-
-
     },
     update: function(delta) {
         this.now = new Date().getTime();

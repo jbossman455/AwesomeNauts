@@ -9,7 +9,7 @@ game.TitleScreen = me.ScreenObject.extend({
                 
                 me.game.world.addChild (new (me.Renderable.extend ({
                     init: function () {
-                        this._super(me.Renderable, 'init', [270, 240, 300, 50]);
+                        this._super(me.Renderable, 'init', [270, 140, 300, 50]);
                         this.font = new me.Font ("Arial", 46, "white");
                         me.input.registerPointerEvent("pointerdown" , this, this.newGame.bind(this), true);
                         
@@ -31,13 +31,14 @@ game.TitleScreen = me.ScreenObject.extend({
                         me.save.remove('exp2');
                         me.save.remove('exp3');
                         me.save.remove('exp4');
-                        me.state.change(me.state.PlAY)
+                        me.save.add({exp: 0, exp1:0, exp2:0, exp3:0, exp4:0});
+                        me.state.change(me.state.PLAY);
                     }
                     
                 })));
                             me.game.world.addChild (new (me.Renderable.extend ({
                     init: function () {
-                        this._super(me.Renderable, 'init', [270, 240, 300, 50]);
+                        this._super(me.Renderable, 'init', [270, 340, 300, 50]);
                         this.font = new me.Font ("Arial", 46, "white");
                         me.input.registerPointerEvent("pointerdown" , this, this.newGame.bind(this), true);
                         
@@ -59,7 +60,7 @@ game.TitleScreen = me.ScreenObject.extend({
                         game.data.exp3 = me.save.exp3;
                         game.data.exp4 = me.save.exp4;
                         me.input.releasePointerEvent('pointerdown', (this));                
-                        me.state.change(me.state.PlAY);
+                        me.state.change(me.state.SPENDEXP);
                     }
                     
                 })));
