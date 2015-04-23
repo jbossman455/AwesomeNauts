@@ -189,7 +189,19 @@
       
       
       checkCost: function (skill) {
-          
+          if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+              return true;
+          } else if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+              return true;
+          } else if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+              return true; 
+              
+           if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+              return true;
+          }
+          } else{
+              return false;
+          }
       },
       
       makePurchase: function (skill) {
