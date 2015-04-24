@@ -191,21 +191,50 @@
       checkCost: function (skill) {
           if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
               return true;
-          } else if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+          } else if(skill===2 && ( game.data.gold >= (game.data.skill2+1)*10)){
               return true;
-          } else if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+          } else if(skill===3 && ( game.data.gold >= (game.data.skill3+1)*10)){
               return true; 
-              
-           if(skill===1 && ( game.data.gold >= (game.data.skill1+1)*10)){
+          }else if(skill===4 && ( game.data.gold >= (game.data.skill4+1)*10)){
               return true;
-          }
-          } else{
+          }  else if(skill===5 && ( game.data.gold >= (game.data.skill5+1)*10)){
+              return true;
+          } else if(skill===6 && ( game.data.gold >= (game.data.skill6+1)*10)){
+              return true;
+          }else{
               return false;
           }
       },
       
       makePurchase: function (skill) {
+          if(skill1=== 1) {
+           game.data.gold -= ((game.data.skill1 + 1)* 10);
+           game.data.skill += 1;
+           game.data.player.attack += 1;
+     }else if (skill ===2) {
+             game.data.gold -= ((game.data.skill2 + 1)* 10);
+           game.data.skill2 += 1;
+     }else if (skill === 3){
+     game.data.gold -= ((game.data.skill3 + 1)* 10);
+           game.data.skill3 += 1;
+     }else if (skill === 4){
+     game.data.gold -= ((game.ability1 + 1)* 10);
+           game.data.ability1 += 1;
+     }else if (skill === 5){
+     game.data.gold -= ((game.data.ability2 + 1)* 10);
+           game.data.ability2 += 1;
+     }else if (skill === 6){
+     game.data.gold -= ((game.data.ability3 + 1)* 10); 
+           game.data.ability3 += 1;
+     }else{
+         
+     }
+    
+      
+      } 
           
-      }
+      
+          
+      
       
   });
