@@ -4,7 +4,7 @@
           this.lastCreep = new Date () . getTime();
           this.paused = false;
           this.alwaysUpdate=true;
-          
+            
           
     },
     update: function() {

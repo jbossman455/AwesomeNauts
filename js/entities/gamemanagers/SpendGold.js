@@ -6,7 +6,7 @@
           this.paused = false;
           this.alwaysUpdate=true;
           this.updateWhenPaused = true;
-          
+                          
       }, 
       update: function () {
           this.now = new Date (). getTime();
