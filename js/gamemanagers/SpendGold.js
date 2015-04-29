@@ -55,7 +55,7 @@
                     
                     
                     draw: function (renderer) {
-                        this.font.draw(renderer.getContext(), "PRESS F1-F4 TO BUY, AND B TO EXIT, SCRUB. Current Gold: " + game.data.gold, this.pos.x , this.pos.y); this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100 , this.pos.y - 50);  
+                        this.font.draw(renderer.getContext(), "PRESS F1-F4 TO BUY, AND B TO EXIT,. Current Gold: " + game.data.gold, this.pos.x , this.pos.y); this.font.draw(renderer.getContext(), "CURRENT EXP: " + game.data.exp.toString(), this.pos.x + 100 , this.pos.y - 50);  
                         this.font.draw(renderer.getContext(), " Skill 1:Increase Damage. Current Level:" + game.data.skill1 + "Cost: " + ((game.data.skill1+1)*10), this.pos.x ,  this.pos.y + 40); 
                         this.font.draw(renderer.getContext(), " Skill 2:Run Faster: Current Level" + game.data.skill2 + "Cost: " + ((game.data.skill2+1)*10), this.pos.x ,  this.pos.y + 80);  
                         this.font.draw(renderer.getContext(), " Skill 3:Increase Health. Current Level" + game.data.skill3 + "Cost: " + ((game.data.skill3+1)*10), this.pos.x ,  this.pos.y + 120);
