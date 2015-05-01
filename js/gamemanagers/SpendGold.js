@@ -1,4 +1,4 @@
-  
+
   game.SpendGold = Object.extend ({
       init: function (x, y, settings) {
           this.now = new Date (). getTime();
@@ -32,7 +32,7 @@
           game.data.buyscreen = new me.Sprite(game.data.pausePos.x, game.data.pausePos.y, me.loader.getImage('gold-screen'));
           game.data.buyscreen.updateWhenPaused = true;
           game.data.buyscreen.setOpacity(0.8);
-          me.game.world.addChild(game.data.buyscreen, 54);
+          me.game.world.addChild(game.data.buyscreen, 34);
           game.data.player.body.setVelocity(0, 0);
           me.input.bindKey(me.input.KEY.F1, "F1", true);
           me.input.bindKey(me.input.KEY.F2, "F2", true);
@@ -45,7 +45,7 @@
       },
       
       setBuyText: function(){
-            game.data.buytext = (new (me.Renderable.extend ({
+            game.data.buytext = new (me.Renderable.extend ({
                     init: function () {
                         this._super(me.Renderable, 'init', [game.data.pausePos.x, game.data.pausePos.y, 300, 50]);
                         this.font = new me.Font ("Arial", 46, "white");
@@ -64,7 +64,7 @@
                         this.font.draw(renderer.getContext(), "E SKILL: Throw your Spear:" + game.data.ability3 + "Cost: " + ((game.data.ability3+1)*10), this.pos.x ,  this.pos.y + 240);  
                        
                     }
-                       })), 35);
+                       }));
              me.game.world.addChild(game.data.buytext, 35);
       },
       

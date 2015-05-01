@@ -1,7 +1,8 @@
-
+// The whole class for the enemy base in game.
 game.EnemyBaseEntity = me.Entity.extend({
     init: function(x, y, settings) {
         this._super(me.Entity, 'init', [x, y, {
+                // Properties of the base, how wide, how tall etc.
             image: "tower",
             width: 100,
             height: 100,

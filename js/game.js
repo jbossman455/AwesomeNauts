@@ -95,6 +95,6 @@ var game = {
                 me.state.set(me.state.LOAD, new game.LoadProfile());
                 me.state.set(me.state.NEW, new game.NewProfile());
 		// Start the game.
-		me.state.change(me.state.MENU);
+		me.state.change(me.state.PLAY);
 	}
 };
